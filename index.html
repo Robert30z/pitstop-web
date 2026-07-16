@@ -137,6 +137,22 @@ footer{background:var(--band);color:#c7cdd6;padding:44px 0 30px}
 .foot .col p{font-size:14px;margin-bottom:4px}
 .copy{color:#6b7480;font-size:12px;margin-top:26px;text-align:center}
 
+/* promo band */
+.promo{display:none;background:linear-gradient(135deg,#B8860B,#F5A623);color:#12161C;
+  border-bottom:3px solid var(--ink)}
+.promo .in{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
+  padding:16px 20px;text-align:center}
+.promo .tag{background:var(--ink);color:var(--amber);font-family:var(--disp);font-size:12px;
+  text-transform:uppercase;letter-spacing:.14em;padding:6px 12px;border-radius:8px;flex-shrink:0}
+.promo .txt{font-weight:800;font-size:16px;max-width:46ch}
+.promo .txt small{display:block;font-weight:600;font-size:12.5px;opacity:.85;margin-top:2px}
+.promo .precio{font-family:var(--disp);font-size:30px;line-height:1;flex-shrink:0}
+.promo .btn-promo{background:var(--ink);color:#fff;font-weight:800;font-size:13px;
+  text-transform:uppercase;letter-spacing:.5px;padding:11px 18px;border-radius:10px;
+  text-decoration:none;flex-shrink:0;display:inline-flex;align-items:center;gap:7px}
+.promo .btn-promo:hover{background:#000}
+@media(max-width:640px){.promo .in{gap:8px}.promo .precio{font-size:26px}}
+
 /* sticky mobile call bar */
 .mobar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;gap:0;
   box-shadow:0 -4px 20px rgba(0,0,0,.18)}
@@ -177,6 +193,16 @@ footer{background:var(--band);color:#c7cdd6;padding:44px 0 30px}
     </div>
   </div>
 </section>
+
+<!-- PROMO (se llena desde el CONFIG del script; oculta si PROMO.on=false o venció) -->
+<div class="promo" id="promoBand">
+  <div class="wrap in">
+    <span class="tag">🎁 Promo</span>
+    <div class="txt"><span id="promoTitulo"></span><small id="promoDetalle"></small></div>
+    <span class="precio" id="promoPrecio"></span>
+    <a class="btn-promo" id="promoBtn" href="#pedir">La quiero →</a>
+  </div>
+</div>
 
 <!-- SERVICES -->
 <section id="servicios">
@@ -280,7 +306,32 @@ footer{background:var(--band);color:#c7cdd6;padding:44px 0 30px}
    =========================================================== */
 var PHONE = "17874546513";   // ej: "17875551234"
 
+/* ===========================================================
+   PROMO DEL MES — Roberto: edita esto cuando cambies la promo
+   en ShopFlow (Ajustes → Promociones), para que la página y el
+   taller digan lo mismo. on:false la esconde al instante.
+   =========================================================== */
+var PROMO = {
+  on: true,
+  titulo: "Aceite y filtro — te regalamos un lavado de motor",
+  detalle: "Cambio de aceite y filtro sintético + lavado de motor incluido, en tu casa",
+  precio: "$120",
+  hasta: ""   // "2026-08-31" = se esconde sola después; "" = sin fecha límite
+};
+
 (function(){
+  // promo band
+  if(PROMO.on && (!PROMO.hasta || new Date().toISOString().split('T')[0] <= PROMO.hasta)){
+    document.getElementById('promoTitulo').textContent = PROMO.titulo;
+    document.getElementById('promoDetalle').textContent = PROMO.detalle + (PROMO.hasta ? ' · válida hasta ' + PROMO.hasta : '');
+    document.getElementById('promoPrecio').textContent = PROMO.precio;
+    document.getElementById('promoBand').style.display = 'block';
+    if(PHONE){
+      var promoMsg = "¡Hola Pit Stop! Quiero la promo 🎁 " + PROMO.titulo + " (" + PROMO.precio + ")";
+      document.getElementById('promoBtn').href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(promoMsg);
+      document.getElementById('promoBtn').target = "_blank";
+    }
+  }
   document.getElementById('yr').textContent = new Date().getFullYear();
   var val = function(id){ return (document.getElementById(id).value||'').trim(); };
 
