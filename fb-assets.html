@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Helvetica Neue",Arial,sans-serif}
+#logo{width:500px;height:500px;background:linear-gradient(180deg,#0E1116,#161B22);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;position:relative;overflow:hidden}
+#logo::after{content:"";position:absolute;right:-90px;top:-70px;width:300px;height:300px;background:radial-gradient(circle,rgba(226,59,46,.3),transparent 62%)}
+#logo .checker{position:absolute;top:0;left:0;right:0;height:22px;background:repeating-conic-gradient(#12161C 0% 25%, transparent 0% 50%) 0 0/44px 44px,#F5A623}
+#logo .checker.b{top:auto;bottom:0}
+#logo .dot{width:56px;height:56px;border-radius:50%;background:#E23B2E;box-shadow:0 0 0 14px rgba(226,59,46,.25)}
+#logo .n{font-family:"Arial Black",Impact,sans-serif;font-size:74px;color:#fff;letter-spacing:1px}
+#logo .t{color:#F5A623;font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:17px}
+#cover{width:1640px;height:624px;background:linear-gradient(180deg,#0E1116,#161B22);color:#fff;display:flex;align-items:center;padding:0 90px;gap:60px;position:relative;overflow:hidden;margin-top:30px}
+#cover::after{content:"";position:absolute;right:-140px;top:-120px;width:560px;height:560px;background:radial-gradient(circle,rgba(226,59,46,.25),transparent 62%)}
+#cover .checker{position:absolute;top:0;left:0;right:0;height:20px;background:repeating-conic-gradient(#12161C 0% 25%, transparent 0% 50%) 0 0/40px 40px,#F5A623}
+#cover .checker.b{top:auto;bottom:0}
+#cover h1{font-family:"Arial Black",Impact,sans-serif;font-size:92px;line-height:.95;text-transform:uppercase}
+#cover h1 em{color:#E23B2E;font-style:normal}
+#cover .tag{color:#F5A623;font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:22px;margin-bottom:14px}
+#cover .right{margin-left:auto;text-align:center;background:rgba(255,255,255,.06);border:2px solid #33404f;border-radius:24px;padding:38px 46px;position:relative;z-index:1}
+#cover .wa{font-family:"Arial Black",Impact,sans-serif;font-size:46px;color:#25D366}
+#cover .r2{color:#c7cdd6;font-size:22px;margin-top:8px}
+#cover .r3{color:#F5A623;font-weight:700;font-size:22px;margin-top:6px}
+</style>
+</head>
+<body>
+<div id="logo">
+  <div class="checker"></div>
+  <div class="dot"></div>
+  <div class="n">PIT STOP</div>
+  <div class="t">Mecánico a Domicilio</div>
+  <div class="checker b"></div>
+</div>
+<div id="cover">
+  <div class="checker"></div>
+  <div>
+    <div class="tag">Mecánico a Domicilio · Bayamón, PR</div>
+    <h1>El taller<br><em>llega a ti.</em></h1>
+  </div>
+  <div class="right">
+    <div style="color:#9aa4b1;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:19px">WhatsApp</div>
+    <div class="wa">787-454-6513</div>
+    <div class="r2">Lun–Sáb · 8am–6pm</div>
+    <div class="r3">Diagnóstico $60 — se acredita</div>
+  </div>
+  <div class="checker b"></div>
+</div>
+</body>
+</html>

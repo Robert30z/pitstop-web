@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pit Stop — Flyers para imprimir</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#888;padding:20px}
+/* ===== hoja carta 8.5x11 @ 96dpi = 816 x 1056 ===== */
+.sheet{width:816px;height:1056px;position:relative;overflow:hidden;background:#121212;margin:0 auto 30px;color:#fff}
+.hdr{position:relative;background:#D6363C;padding:34px 40px 26px;text-align:center}
+.hdr::after{content:"";position:absolute;left:0;right:0;bottom:-40px;height:80px;background:linear-gradient(115deg,rgba(0,0,0,.16) 0%,rgba(0,0,0,.16) 45%,transparent 45%)}
+.logo{font-size:74px;font-style:italic;letter-spacing:-2px;line-height:.9}
+.kata{font-size:22px;letter-spacing:14px;margin-top:8px;font-family:"Yu Gothic","Meiryo",sans-serif;font-weight:600}
+.band{background:#fff;color:#D6363C;text-align:center;font-size:26px;letter-spacing:8px;font-weight:900;padding:9px 0;position:relative;z-index:3}
+.hook{text-align:center;padding:14px 40px 4px}
+.hook h2{font-size:40px;font-style:italic;line-height:.98;text-transform:uppercase}
+.hook p{font-family:"Helvetica Neue",Arial;font-size:19px;font-weight:700;color:#ddd;margin-top:10px;line-height:1.32}
+/* lista de precios */
+.prices{margin:14px 44px 0;border-top:3px solid #D6363C}
+.row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 4px;border-bottom:1px solid #2c2c2c;font-family:"Helvetica Neue",Arial}
+.row .n{font-size:20px;font-weight:800}
+.row .n em{display:block;font-size:12px;color:#999;font-weight:600;font-style:normal;letter-spacing:.4px;margin-top:2px}
+.row .p{font-size:23px;font-weight:900;color:#D6363C;white-space:nowrap;padding-left:18px}
+/* ventajas */
+.why{display:flex;gap:10px;margin:16px 44px 0}
+.why div{flex:1;background:#1c1c1c;border-left:4px solid #D6363C;padding:10px 11px;font-family:"Helvetica Neue",Arial;font-size:13px;font-weight:700;line-height:1.3}
+/* pie */
+.foot{position:absolute;bottom:0;left:0;right:0;background:#D6363C;padding:20px 40px 22px;text-align:center}
+.foot .wa{font-size:44px;font-weight:900;font-style:italic}
+.foot .site{font-family:"Helvetica Neue",Arial;font-size:19px;font-weight:700;margin-top:6px;letter-spacing:.5px}
+.foot .area{font-family:"Helvetica Neue",Arial;font-size:14px;font-weight:600;margin-top:9px;letter-spacing:2px;color:#ffe2e3}
+.px{position:absolute;width:70px;height:35px;opacity:.22;background:repeating-conic-gradient(#fff 0% 25%,transparent 0% 50%) 0 0/35px 35px}
+/* ===== flyer media carta con tiritas ===== */
+.half{width:816px;height:528px;position:relative;overflow:hidden;background:#121212;margin:0 auto 30px;color:#fff}
+.half .hdr{padding:22px 30px 18px}
+.half .logo{font-size:52px}
+.half .kata{font-size:17px;letter-spacing:10px;margin-top:5px}
+.half .band{font-size:20px;letter-spacing:6px;padding:7px 0}
+.hbody{display:flex;padding:20px 30px 0;gap:22px}
+.hbody .left{flex:1.25}
+.hbody .left h2{font-size:33px;font-style:italic;line-height:1;text-transform:uppercase}
+.hbody .left ul{list-style:none;margin-top:13px;font-family:"Helvetica Neue",Arial;font-size:16px;font-weight:700;line-height:1.75}
+.hbody .left ul li::before{content:"▸ ";color:#D6363C}
+.hbody .right{flex:1;background:#1c1c1c;padding:14px;border-left:4px solid #D6363C}
+.hbody .right .t{font-family:"Helvetica Neue",Arial;font-size:13px;letter-spacing:2px;color:#999;font-weight:700}
+.hbody .right .r{display:flex;justify-content:space-between;font-family:"Helvetica Neue",Arial;font-size:15px;font-weight:800;padding:7px 0;border-bottom:1px solid #2f2f2f}
+.hbody .right .r span:last-child{color:#D6363C}
+/* tiritas cortables */
+.tabs{position:absolute;bottom:0;left:0;right:0;display:flex;border-top:2px dashed #555}
+.tab{flex:1;border-right:1px dashed #555;padding:11px 2px;text-align:center;background:#D6363C}
+.tab:last-child{border-right:none}
+.tab b{display:block;font-size:14px;font-style:italic;line-height:1.15}
+.tab span{display:block;font-family:"Helvetica Neue",Arial;font-size:11px;font-weight:700;margin-top:3px}
+.halffoot{position:absolute;bottom:78px;left:0;right:0;text-align:center;font-size:26px;font-weight:900;font-style:italic;color:#25D366}
+@media print{body{background:#fff;padding:0}.sheet,.half{margin:0;page-break-after:always}}
+</style>
+</head>
+<body>
+
+<!-- ============ FLYER 1 — HOJA CARTA COMPLETA ============ -->
+<div class="sheet" id="f1">
+  <div class="hdr">
+    <div class="logo">PIT STOP</div>
+    <div class="kata">ピットストップ</div>
+  </div>
+  <div class="band">◄ MECÁNICO A DOMICILIO ►</div>
+  <div class="px" style="top:32%;right:5%"></div>
+  <div class="px" style="top:58%;left:4%"></div>
+
+  <div class="hook">
+    <h2>El taller<br>llega a ti</h2>
+    <p>No remolques. No pierdas el día esperando.<br>Voy a tu casa o a tu trabajo y lo resuelvo ahí.</p>
+  </div>
+
+  <div class="prices">
+    <div class="row"><div class="n">Diagnóstico computarizado<em>SE ACREDITA A LA REPARACIÓN</em></div><div class="p">desde $60</div></div>
+    <div class="row"><div class="n">Cambio de aceite y filtro<em>REGULAR 5QT — TODO INCLUIDO</em></div><div class="p">$75</div></div>
+    <div class="row"><div class="n">Cambio de aceite sintético<em>5QT — TODO INCLUIDO</em></div><div class="p">$99</div></div>
+    <div class="row"><div class="n">Frenos delanteros completos<em>PASTILLAS + AJUSTE DE TRASEROS Y EMERGENCIA</em></div><div class="p">$139</div></div>
+    <div class="row"><div class="n">Instalación de batería<em>BATERÍA APARTE — BORNES INCLUIDO</em></div><div class="p">$45</div></div>
+    <div class="row"><div class="n">Inspección pre-compra de usado<em>ANTES DE QUE PAGUES POR ESE CARRO</em></div><div class="p">$80</div></div>
+    <div class="row"><div class="n">Recarga de A/C<em>CON TINTE PARA HALLAR LA FUGA</em></div><div class="p">desde $120</div></div>
+  </div>
+
+  <div class="why">
+    <div>PRESUPUESTO ANTES · TÚ APRUEBAS</div>
+    <div>FOTOS ANTES/DESPUÉS + RECIBO</div>
+    <div>MÁS DE 10 AÑOS DE EXPERIENCIA</div>
+  </div>
+
+  <div class="foot">
+    <div class="wa">WhatsApp 787-454-6513</div>
+    <div class="site">robert30z.github.io/pitstop-web</div>
+    <div class="area">BAYAMÓN · GUAYNABO · CATAÑO · TOA BAJA · LEVITTOWN · SAN JUAN</div>
+  </div>
+</div>
+
+<!-- ============ FLYER 2 — MEDIA CARTA CON TIRITAS ============ -->
+<div class="half" id="f2">
+  <div class="hdr">
+    <div class="logo">PIT STOP</div>
+    <div class="kata">ピットストップ</div>
+  </div>
+  <div class="band">◄ MECÁNICO A DOMICILIO ►</div>
+
+  <div class="hbody">
+    <div class="left">
+      <h2>¿Se te dañó<br>el carro?</h2>
+      <ul>
+        <li>Voy donde tú estás</li>
+        <li>Te digo el precio antes</li>
+        <li>Fotos y recibo digital</li>
+        <li>Bayamón y área metro</li>
+      </ul>
+    </div>
+    <div class="right">
+      <div class="t">PRECIOS DE ENTRADA</div>
+      <div class="r"><span>Diagnóstico</span><span>desde $60</span></div>
+      <div class="r"><span>Aceite + filtro</span><span>$75</span></div>
+      <div class="r"><span>Frenos del.</span><span>$139</span></div>
+      <div class="r"><span>Batería</span><span>$45</span></div>
+      <div class="r" style="border:none"><span>Pre-compra</span><span>$80</span></div>
+    </div>
+  </div>
+
+  <div class="halffoot">WhatsApp 787-454-6513</div>
+
+  <div class="tabs">
+    <div class="tab"><b>PIT STOP</b><span>787-454-6513</span></div>
+    <div class="tab"><b>PIT STOP</b><span>787-454-6513</span></div>
+    <div class="tab"><b>PIT STOP</b><span>787-454-6513</span></div>
+    <div class="tab"><b>PIT STOP</b><span>787-454-6513</span></div>
+    <div class="tab"><b>PIT STOP</b><span>787-454-6513</span></div>
+    <div class="tab"><b>PIT STOP</b><span>787-454-6513</span></div>
+    <div class="tab"><b>PIT STOP</b><span>787-454-6513</span></div>
+    <div class="tab"><b>PIT STOP</b><span>787-454-6513</span></div>
+  </div>
+</div>
+
+</body>
+</html>
