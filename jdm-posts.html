@@ -26,13 +26,28 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
 .px{position:absolute;width:84px;height:42px;z-index:2;opacity:.28;background:repeating-conic-gradient(#000 0% 25%,transparent 0% 50%) 0 0/42px 42px}
 .px.w{background:repeating-conic-gradient(#fff 0% 25%,transparent 0% 50%) 0 0/42px 42px;opacity:.15}
 /* type */
-.kicker{position:absolute;top:11%;width:100%;text-align:center;color:#fff;font-size:30px;letter-spacing:14px;z-index:4;font-family:"Helvetica Neue",Arial;font-weight:700}
+/* kicker: el texto YA trae espacios a mano entre letras, así que el letter-spacing
+   iba doble y se desbordaba (en b9 partía "CARRETERA" en "CARR"/"ETERA").
+   nowrap = si algún día no cabe, se ve raro en el HTML y lo cazas ANTES de exportar. */
+.kicker{position:absolute;top:11%;width:100%;text-align:center;color:#fff;font-size:30px;letter-spacing:4px;z-index:4;font-family:"Helvetica Neue",Arial;font-weight:700;white-space:nowrap}
+.kicker.sm{font-size:25px;letter-spacing:2px}  /* para kickers largos */
 .main{position:absolute;top:15.5%;width:100%;text-align:center;color:#fff;font-size:104px;font-style:italic;letter-spacing:-2px;line-height:.95;z-index:4;text-transform:uppercase}
 .kata{position:absolute;top:37.5%;width:100%;text-align:center;color:#fff;font-size:30px;letter-spacing:16px;z-index:4;font-family:"Yu Gothic","Meiryo",sans-serif;font-weight:600}
-.big2{position:absolute;top:53%;width:100%;text-align:center;color:#D6363C;font-size:170px;font-style:italic;line-height:.9;z-index:4;text-transform:uppercase;-webkit-text-stroke:5px #fff;paint-order:stroke fill}
-.sub{position:absolute;top:74%;width:100%;text-align:center;color:#fff;font-size:40px;z-index:4;font-family:"Helvetica Neue",Arial;font-weight:800}
-.sub small{display:block;font-size:26px;color:#bbb;font-weight:600;margin-top:10px}
-.tag{position:absolute;bottom:9.5%;width:100%;text-align:center;color:#ddd;font-size:26px;letter-spacing:12px;z-index:4;font-family:"Helvetica Neue",Arial;font-weight:700}
+.big2{position:absolute;top:51.5%;width:100%;text-align:center;color:#D6363C;font-size:170px;font-style:italic;line-height:.9;z-index:4;text-transform:uppercase;-webkit-text-stroke:5px #fff;paint-order:stroke fill}
+/* 🔒 BLOQUE INFERIOR ANCLADO ABAJO (2026-07-26)
+   Antes cada línea se posicionaba por su cuenta con top:% distintos por gráfica,
+   así que un texto de dos líneas se comía al de abajo. Los 13 boards estaban
+   solapados. Ahora sub/tag/wa se anclan al borde inferior y CRECEN HACIA ARRIBA
+   → es imposible que choquen, sin importar cuán largo sea el texto.
+   ⛔ NO le pongas top:% a .sub en un board nuevo. Deja que se ancle solo. */
+.sub{position:absolute;bottom:15.5%;width:100%;text-align:center;color:#fff;font-size:40px;z-index:4;font-family:"Helvetica Neue",Arial;font-weight:800}
+/* ⚠️ LEGIBILIDAD EN CELULAR (arreglado 2026-07-26)
+   El lienzo es 1080px pero en el feed de IG/FB se ve a ~380px de ancho.
+   Todo lo que aquí mida 26px, en el celular mide ~9px = ilegible.
+   REGLA: nada de texto por debajo de 30px, y el letter-spacing amplio
+   destroza la lectura al achicarse (las letras se sueltan de la palabra). */
+.sub small{display:block;font-size:33px;color:#ededed;font-weight:700;margin-top:12px}
+.tag{position:absolute;bottom:10.9%;width:100%;text-align:center;color:#f2f2f2;font-size:30px;letter-spacing:6px;z-index:4;font-family:"Helvetica Neue",Arial;font-weight:700;white-space:nowrap}
 .wa{position:absolute;bottom:5%;width:100%;text-align:center;color:#25D366;font-size:34px;z-index:6;font-weight:900;font-style:italic}
 </style>
 </head>
@@ -51,7 +66,7 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
   <div class="big2" style="font-size:130px">DESDE<br>$60</div>
-  <div class="sub" style="top:77%">Se acredita a la reparación<small>ESCANEO COMPUTARIZADO — VOY HASTA TI</small></div>
+  <div class="sub">Se acredita a la reparación<small>ESCANEO COMPUTARIZADO — VOY HASTA TI</small></div>
   <div class="tag">M O B I L E &nbsp; A U T O &nbsp; S E R V I C E</div>
   <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
@@ -67,9 +82,9 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
   <div class="big2" style="font-size:110px;top:55%">No lo dejes<br>pa' luego</div>
-  <div class="sub" style="top:78%">Cotización con fotos, en tu casa<small>PASTILLAS · ROTORES · LÍQUIDO</small></div>
-  <div class="tag" style="bottom:8%">M E C Á N I C A &nbsp; M Ó V I L</div>
-  <div class="wa" style="bottom:3.8%">WhatsApp 787-454-6513</div>
+  <div class="sub">Cotización con fotos, en tu casa<small>PASTILLAS · ROTORES · LÍQUIDO</small></div>
+  <div class="tag">M E C Á N I C A &nbsp; M Ó V I L</div>
+  <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
   <div class="reg tl"><i></i></div><div class="reg tr"><i></i></div><div class="reg bl"><i></i></div><div class="reg br"><i></i></div>
 </div>
@@ -83,7 +98,7 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
   <div class="big2" style="font-size:130px">DESDE<br>$80</div>
-  <div class="sub" style="top:79%">Lo reviso ANTES de que pagues<small>MOTOR · TRANSMISIÓN · CHASIS · HISTORIAL DE GOLPES</small></div>
+  <div class="sub">Lo reviso ANTES de que pagues<small>MOTOR · TRANSMISIÓN · CHASIS · HISTORIAL DE GOLPES</small></div>
   <div class="tag">M O B I L E &nbsp; A U T O &nbsp; S E R V I C E</div>
   <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
@@ -99,7 +114,7 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
   <div class="big2" style="font-size:130px">DESDE<br>$139</div>
-  <div class="sub" style="top:78%">Pastillas nuevas + ajuste de traseros<small>ROTORES POR COTIZACIÓN CON FOTOS — EN TU CASA</small></div>
+  <div class="sub">Pastillas nuevas + ajuste de traseros<small>ROTORES POR COTIZACIÓN CON FOTOS — EN TU CASA</small></div>
   <div class="tag">M E C Á N I C A &nbsp; M Ó V I L</div>
   <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
@@ -117,7 +132,7 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
   <div class="big2" style="font-size:130px">DESDE<br>$89</div>
-  <div class="sub" style="top:76.5%">Aceite y filtro 5qt + rotación + inspección<small>BASE 5 CUARTOS · SINTÉTICO POR COTIZACIÓN</small></div>
+  <div class="sub">Aceite y filtro 5qt + rotación + inspección<small>BASE 5 CUARTOS · SINTÉTICO POR COTIZACIÓN</small></div>
   <div class="tag">M E C Á N I C A &nbsp; M Ó V I L</div>
   <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
@@ -133,7 +148,7 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
   <div class="big2" style="font-size:130px">DESDE<br>$45</div>
-  <div class="sub" style="top:78%">Instalación + limpieza de bornes<small>BATERÍA APARTE · PRUEBA DE ALTERNADOR GRATIS</small></div>
+  <div class="sub">Instalación + limpieza de bornes<small>BATERÍA APARTE · PRUEBA DE ALTERNADOR GRATIS</small></div>
   <div class="tag">M E C Á N I C A &nbsp; M Ó V I L</div>
   <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
@@ -148,10 +163,10 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
   <div class="main" style="font-size:96px">¿El A/C bota<br>aire caliente?</div>
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
-  <div class="big2" style="font-size:126px;top:54%">RECARGA<br>DESDE $120</div>
-  <div class="sub" style="top:78%">Con tinte para encontrar la fuga<small>DIAGNÓSTICO DE FUGA DESDE $60 — SE ACREDITA</small></div>
-  <div class="tag" style="bottom:8%">M E C Á N I C A &nbsp; M Ó V I L</div>
-  <div class="wa" style="bottom:3.8%">WhatsApp 787-454-6513</div>
+  <div class="big2" style="font-size:126px;top:51.5%">RECARGA<br>DESDE $120</div>
+  <div class="sub">Con tinte para encontrar la fuga<small>DIAGNÓSTICO DE FUGA DESDE $60 — SE ACREDITA</small></div>
+  <div class="tag">M E C Á N I C A &nbsp; M Ó V I L</div>
+  <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
   <div class="reg tl"><i></i></div><div class="reg tr"><i></i></div><div class="reg bl"><i></i></div><div class="reg br"><i></i></div>
 </div>
@@ -160,12 +175,12 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
 <div class="board" id="b9">
   <div class="top"></div><div class="bot"></div>
   <div class="px" style="top:10%;left:10%"></div><div class="px w" style="top:30%;right:8%"></div><div class="px w" style="bottom:24%;left:9%"></div>
-  <div class="kicker">A N T E S &nbsp; D E &nbsp; C O G E R &nbsp; C A R R E T E R A</div>
+  <div class="kicker sm">A N T E S &nbsp; D E &nbsp; C O G E R &nbsp; C A R R E T E R A</div>
   <div class="main" style="font-size:92px">Chequeo<br>Pre-Viaje</div>
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
   <div class="big2" style="font-size:130px">DESDE<br>$60</div>
-  <div class="sub" style="top:78%">Frenos, gomas, correas, fluidos y batería<small>TE MANDO EL REPORTE CON FOTOS POR WHATSAPP</small></div>
+  <div class="sub">Frenos, gomas, correas, fluidos y batería<small>TE MANDO EL REPORTE CON FOTOS POR WHATSAPP</small></div>
   <div class="tag">M O B I L E &nbsp; A U T O &nbsp; S E R V I C E</div>
   <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
@@ -181,9 +196,9 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
   <div class="big2" style="font-size:120px;top:54%">$15 OFF<br>LOS DOS</div>
-  <div class="sub" style="top:76%">Él ahorra en la primera y tú en la próxima<small>SOLO DILE QUE TE MENCIONE CUANDO ESCRIBA</small></div>
-  <div class="tag" style="bottom:8%">M E C Á N I C A &nbsp; M Ó V I L</div>
-  <div class="wa" style="bottom:3.8%">WhatsApp 787-454-6513</div>
+  <div class="sub">Él ahorra en la primera y tú en la próxima<small>SOLO DILE QUE TE MENCIONE CUANDO ESCRIBA</small></div>
+  <div class="tag">M E C Á N I C A &nbsp; M Ó V I L</div>
+  <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
   <div class="reg tl"><i></i></div><div class="reg tr"><i></i></div><div class="reg bl"><i></i></div><div class="reg br"><i></i></div>
 </div>
@@ -197,9 +212,9 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
   <div class="big2" style="font-size:116px;top:54%">TE DIGO<br>QUÉ ES</div>
-  <div class="sub" style="top:76%">Amortiguadores, gomas, links y bearings<small>DIAGNÓSTICO DESDE $60 EN ADELANTE — SE ACREDITA</small></div>
-  <div class="tag" style="bottom:8%">M E C Á N I C A &nbsp; M Ó V I L</div>
-  <div class="wa" style="bottom:3.8%">WhatsApp 787-454-6513</div>
+  <div class="sub">Amortiguadores, gomas, links y bearings<small>DIAGNÓSTICO DESDE $60 EN ADELANTE — SE ACREDITA</small></div>
+  <div class="tag">M E C Á N I C A &nbsp; M Ó V I L</div>
+  <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
   <div class="reg tl"><i></i></div><div class="reg tr"><i></i></div><div class="reg bl"><i></i></div><div class="reg br"><i></i></div>
 </div>
@@ -213,9 +228,9 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
   <div class="big2" style="font-size:108px;top:54%">VOY A TU<br>NEGOCIO</div>
-  <div class="sub" style="top:76%">Mantenimiento de flota en tu negocio<small>SE COBRA POR VEHÍCULO, CON COTIZACIÓN</small></div>
-  <div class="tag" style="bottom:8%">M O B I L E &nbsp; A U T O &nbsp; S E R V I C E</div>
-  <div class="wa" style="bottom:3.8%">WhatsApp 787-454-6513</div>
+  <div class="sub">Mantenimiento de flota en tu negocio<small>SE COBRA POR VEHÍCULO, CON COTIZACIÓN</small></div>
+  <div class="tag">M O B I L E &nbsp; A U T O &nbsp; S E R V I C E</div>
+  <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
   <div class="reg tl"><i></i></div><div class="reg tr"><i></i></div><div class="reg bl"><i></i></div><div class="reg br"><i></i></div>
 </div>
@@ -229,9 +244,9 @@ body{font-family:"Arial Black","Yu Gothic",Impact,sans-serif;background:#666}
   <div class="kata">ピットストップ</div>
   <div class="band"><span class="emblem">◄ PIT STOP ►</span></div>
   <div class="big2" style="font-size:104px;top:53%">DESDE $100<br>SINT. $140</div>
-  <div class="sub" style="top:79%">Gratis: rotación de gomas e inspección<small>PRUEBA DE BATERÍA Y ALTERNADOR INCLUIDA</small></div>
-  <div class="tag" style="bottom:8%">M E C Á N I C A &nbsp; M Ó V I L</div>
-  <div class="wa" style="bottom:3.8%">WhatsApp 787-454-6513</div>
+  <div class="sub">Gratis: rotación de gomas e inspección<small>PRUEBA DE BATERÍA Y ALTERNADOR INCLUIDA</small></div>
+  <div class="tag">M E C Á N I C A &nbsp; M Ó V I L</div>
+  <div class="wa">WhatsApp 787-454-6513</div>
   <div class="frame"></div>
   <div class="reg tl"><i></i></div><div class="reg tr"><i></i></div><div class="reg bl"><i></i></div><div class="reg br"><i></i></div>
 </div>
