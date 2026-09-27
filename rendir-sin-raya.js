@@ -2,12 +2,12 @@
 // NO sobrescribe ningun PNG existente: escribe archivos nuevos con sufijo .SIN-RAYA.png
 // La raya larga esta prohibida por voice.md ("es el tell mas confiable que existe").
 function cargarPlaywright() {
-  for (const r of ['playwright', 'C:/Users/Roberto Mendez/ShopFlow/test/node_modules/playwright'])
+  for (const r of ['playwright', 'C:/Users/User/ShopFlow/test/node_modules/playwright'])
     { try { return require(r); } catch (e) {} }
   throw new Error('No encontre playwright.');
 }
 const { chromium } = cargarPlaywright();
-const base = 'C:/Users/Roberto Mendez/Desktop/HQ/Pit Stop';
+const base = 'C:/Users/User/Desktop/HQ/Pit Stop';
 const fuente = base + '/PitStop-Web/jdm-posts.html';
 const salida = base + '/PitStop-JDM';
 const ids = ['b2', 'b6', 'b8', 'b11'];
