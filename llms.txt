@@ -1,0 +1,28 @@
+# Pit Stop
+
+> Mecánica a domicilio en Bayamón y el área metro de Puerto Rico. El mecánico va a la casa o al trabajo del cliente, revisa el carro y da la cotización antes de tocar nada. Frenos primero, y también baterías, alternador, aire acondicionado, coolant, eléctrico y suspensión.
+
+Pit Stop es mecánica liviana a domicilio en Puerto Rico: el mecánico va a la casa o al trabajo del cliente y trabaja en su marquesina.
+
+- Pueblos que atiende: Bayamón, Guaynabo, San Juan, Levittown, Cataño y Dorado.
+- Contacto: WhatsApp o llamada al 787-454-6513 (wa.me/17874546513).
+- Cómo trabaja: el cliente escribe por WhatsApp con una foto o el síntoma, se revisa el carro, se da la cotización antes de trabajar y cada trabajo se entrega con fotos del antes y del después.
+- Garantía: 30 días / 1,000 millas en el trabajo.
+- Precios: se cotiza cada trabajo después de revisar el carro, por WhatsApp.
+
+## Servicios
+
+- [Frenos a domicilio](https://robert30z.github.io/pitstop-web/#frenos): cambio de pastillas, revisión de discos, chillidos, vibración o pedal que se siente distinto.
+- [Baterías](https://robert30z.github.io/pitstop-web/#servicios): prueba de la batería antes de cambiarla, baterías AGM para carros con apagado automático.
+- [Alternador y starter](https://robert30z.github.io/pitstop-web/#servicios): si el carro se apaga o la batería se descarga, se revisa si es la batería o el alternador antes de comprar piezas.
+- [Aire acondicionado](https://robert30z.github.io/pitstop-web/#servicios): lectura de presiones con manómetros antes de recargar.
+- [Coolant y enfriamiento](https://robert30z.github.io/pitstop-web/#servicios): liqueos de coolant, mangas, sangrado del sistema.
+- [Eléctrico](https://robert30z.github.io/pitstop-web/#servicios): luces en el panel, fusibles, terminales y consumo de batería.
+- [Suspensión](https://robert30z.github.io/pitstop-web/#servicios): sopandas, amortiguadores y ruidos en los hoyos.
+- También liqueos de aceite, como la junta de la tapa de válvulas.
+
+## Enlaces
+
+- [Página principal](https://robert30z.github.io/pitstop-web/)
+- [Facebook](https://www.facebook.com/61591704942839)
+- [Instagram](https://www.instagram.com/pitstoppr30/)
